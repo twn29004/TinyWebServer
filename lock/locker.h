@@ -43,6 +43,7 @@ class locker
 public:
     locker()
     {
+        // 原型 int WINPTHREAD_API pthread_mutex_init(pthread_mutex_t *m, const pthread_mutexattr_t *a);
         if (pthread_mutex_init(&m_mutex, NULL) != 0)
         {
             throw std::exception();
@@ -66,6 +67,7 @@ public:
     }
 
 private:
+    // 互斥锁，多线程对于共享变量的保护。
     pthread_mutex_t m_mutex;
 };
 class cond
@@ -110,6 +112,7 @@ public:
 
 private:
     //static pthread_mutex_t m_mutex;
+    // 线程间同步
     pthread_cond_t m_cond;
 };
 #endif
